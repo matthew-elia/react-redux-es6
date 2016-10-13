@@ -39,7 +39,7 @@ dist
 # Mac files
 .DS_Store
 
-
+/ignore
 
 # RAILS
 # RAILS
