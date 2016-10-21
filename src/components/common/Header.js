@@ -1,56 +1,63 @@
-import React, {PropTypes} from 'react';  
-import { Link, IndexLink } from 'react-router';  
-import {connect} from 'react-redux';  
-import {bindActionCreators} from 'redux';  
-import * as userActions from '../../actions/userActions';
+import React, {PropTypes} from 'react';
+import { Link, IndexLink } from 'react-router';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as sessionActions from '../../actions/sessionActions';
+import auth from '../../auth/authentic';
 
-class Header extends React.Component {  
-
+class Header extends React.Component {
   constructor(props) {
     super();
-    this.logout = this.logout.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
-  logout(event) {
+  logOut(event) {
     event.preventDefault();
-    this.props.actions.logoutUser();
+    this.props.actions.logOutUser();
   }
 
   render() {
-	    if (this.props.logged_in) {
-	      return (
+    if (!auth.loggedIn()) {
+      return (
+      	<div className="container-fluid">
+					<div className="row text-center">
+			      <nav>
+			        <IndexLink to="/" activeClassName="active"><span className="fa fa-bank"></span></IndexLink>
+			      </nav>
+			    </div>
+				</div>
+      );
+    } else {
+      return (
+      	<div className="container">
 	        <nav>
-	          <IndexLink to="/" activeClassName="active">Home</IndexLink>
-	          {" | "}
-	          <Link to="/users" activeClassName="active" >Users</Link>
-	          {" | "}
-	          <a href="/logout" onClick={this.logout}>Log Out</a>
-	        </nav>
-	      );
-	    } else {
-	      return (
-	        <nav>
-	          <IndexLink to="/" activeClassName="active">Home</IndexLink>
-	          {" | "}
-	          <Link to="/login" activeClassName="active">Log In / Register</Link>
-	        </nav>
-	      );
-	    }
-	  }
-	}
+	      		<div className="row text-center">
+		          {/*<IndexLink to="/" activeClassName="active">Home</IndexLink>*/}
+		          <Link to="/users" activeClassName="active" className="pull-left"><span className="fa fa-users"></span></Link>
+		          <a href="/" className="pull-right" onClick={this.logOut}><span className="fa fa-hand-peace-o"></span></a>
+		    		</div>
+        	</nav>
+					{/*<div className="row text-center">
+						<span className="fa fa-bank"></span>
+					</div>*/}
+				</div>
+      );
+    }
+  }
+}
 
-Header.propTypes = {  
+Header.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, ownProps) {  
-  return {logged_in: state.logged_in};
+function mapStateToProps(state, ownProps) {
+  return {logged_in: state.session};
 }
 
 function mapDispatchToProps(dispatch) {
-	return {
-		actions: bindActionCreators(userActions, dispatch)
-	}
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

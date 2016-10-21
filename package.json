@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starter kit for React and Redux Pluralsight course by Cory House",
   "scripts": {
-    "prestart":"babel-node tools/startMessage.js",
+    "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
@@ -19,6 +19,7 @@
     "jquery": "2.2.3",
     "react": "15.0.2",
     "react-dom": "15.0.2",
+    "react-fa": "^4.1.2",
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",

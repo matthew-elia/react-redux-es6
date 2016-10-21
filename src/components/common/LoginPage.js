@@ -1,13 +1,12 @@
-// src/components/LogInPage.js
+import React, {PropTypes} from 'react';
+import TextInput from './TextInput';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as sessionActions from '../../actions/sessionActions';
+import auth from '../../auth/authentic';
 
-import React, {PropTypes} from 'react';  
-import TextInput from './TextInput';  
-import {bindActionCreators} from 'redux';  
-import {connect} from 'react-redux';  
-import * as userActions from '../../actions/userActions';
-
-class LoginPage extends React.Component {  
-   constructor(props) {
+class LoginPage extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {credentials: {email: '', password: ''}}
     this.onChange = this.onChange.bind(this);
@@ -26,38 +25,39 @@ class LoginPage extends React.Component {
     this.props.actions.loginUser(this.state.credentials);
   }
 
-
   render() {
-    return (
-      <div>
-        <form>
-          <TextInput
-            name="email"
-            label="email"
-            value={this.state.credentials.email}
-            onChange={this.onChange}/>
+	    return (
+	      <div className="col-xs-6 col-xs-offset-3">
+	        <form>
+	          <TextInput
+	            name="email"
+	            placeholder="e-mail"
+	            value={this.state.credentials.email}
+	            onChange={this.onChange}
+	            ></TextInput>
 
-          <TextInput
-            name="password"
-            label="password"
-            type="password"
-            value={this.state.credentials.password}
-            onChange={this.onChange}/>
+	          <TextInput
+							name="password"
+							placeholder="password"
+	            type="password"
+	            value={this.state.credentials.password}
+	            onChange={this.onChange}
+	            ></TextInput>
 
-          <input
-            type="submit"
-            className="btn btn-primary"
-            onClick={this.onSave}/>
-      	</form>
-      </div>
-  	);
-  }
+	          <input
+	            type="submit"
+	            className="hidden btn btn-primary"
+	            onClick={this.onSave}/>
+	        </form>
+	      </div>
+	  	);
+		}	
+
 }
 
-function mapDispatchToProps(dispatch) {  
+function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(userActions, dispatch)
+    actions: bindActionCreators(sessionActions, dispatch)
   };
 }
-
 export default connect(null, mapDispatchToProps)(LoginPage);

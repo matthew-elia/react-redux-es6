@@ -9,21 +9,22 @@
 }
 
 a.active {
-	color: orange;
+	color: darkgreen;
 }
 
 nav {
-	padding-top: 20px;
+	padding-top: 50px;
 }
 
 .userRowContent {
 	font-size: 21px;
 }
 
-#inputEmail, #inputPassword {
+.textInputs, input:-webkit-autofill {
     border: 0;
     outline: 0;
     background: transparent;
+    background-color: white !important;
     border-bottom: 2px solid black;
     width: 100%;
     height:50px;
@@ -33,4 +34,15 @@ nav {
 
 #rememberMeCheckbox {
 	margin: 18px 0px !important;
+}
+
+.fa-lock, .fa-bank {
+    font-size: 100px;
+    margin: 25px;
+    color:cornflowerblue;
+}
+.fa-hand-peace-o, .fa-users {
+    font-size: 33px;
+    margin:7.75px;
+    color:darkred;
 }

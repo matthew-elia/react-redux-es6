@@ -8,7 +8,7 @@ export default function userReducer(state=initialState.users, action){
 			
 		case 'FIND_OR_CREATE_USER_SUCCESS':
 			// browserHistory.push(`/users/${action.user.id}`)
-			return Object.assign([], action.user)
+			return Object.assign([], action.user);
 
 		default:
 			return state; 
