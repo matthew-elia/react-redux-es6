@@ -5,7 +5,7 @@ class Auth {
 
   static logOut() {
     sessionStorage.removeItem('jwt');
-    window.location.pathname = '/login';
+    window.location.pathname = '/';
   }
 }
 

@@ -3,8 +3,8 @@ import userApi from '../api/userApi';
 import auth from '../auth/authentic';
 
 
-export function loadUsersSuccess() {
-	return {type: types.LOAD_USERS_SUCCESS };
+export function loadUsersSuccess(users) {
+	return {type: types.LOAD_USERS_SUCCESS, users };
 }
 
 

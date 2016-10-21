@@ -21,14 +21,17 @@ class LoginPage extends React.Component {
   }
 
   onSave(event) {
-    event.preventDefault();
+   	event.preventDefault();
     this.props.actions.loginUser(this.state.credentials);
   }
 
   render() {
+
+  	if(!auth.loggedIn()) {
+
 	    return (
 	      <div className="col-xs-6 col-xs-offset-3">
-	        <form>
+	        <form className="text-center">
 	          <TextInput
 	            name="email"
 	            placeholder="e-mail"
@@ -46,12 +49,15 @@ class LoginPage extends React.Component {
 
 	          <input
 	            type="submit"
-	            className="hidden btn btn-primary"
+	            className="btn btn-default btn-lg"
 	            onClick={this.onSave}/>
 	        </form>
 	      </div>
 	  	);
-		}	
+
+		} else { return (<div></div>) }
+	
+	}	
 
 }
 

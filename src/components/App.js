@@ -5,6 +5,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
+      <div id="rightSidebar"></div>
+      <div id="leftSidebar"></div>
         <Header />
         {this.props.children}
       </div>

@@ -19,28 +19,29 @@ class Header extends React.Component {
   render() {
     if (!auth.loggedIn()) {
       return (
-      	<div className="container-fluid">
-					<div className="row text-center">
-			      <nav>
-			        <IndexLink to="/" activeClassName="active"><span className="fa fa-bank"></span></IndexLink>
-			      </nav>
-			    </div>
-				</div>
+      <nav>
+        <div id="loginContainer" className="container-fluid">
+          <div className="row text-center">
+            <div className="col-xs-12">       
+              <IndexLink to="/" activeClassName="active" onClick={(e)=>{e.preventDefault();alert('hey meh')}}><span className="fa fa-barcode"></span></IndexLink>
+            </div>
+          </div>
+        </div>
+      </nav>
       );
     } else {
       return (
-      	<div className="container">
-	        <nav>
-	      		<div className="row text-center">
-		          {/*<IndexLink to="/" activeClassName="active">Home</IndexLink>*/}
-		          <Link to="/users" activeClassName="active" className="pull-left"><span className="fa fa-users"></span></Link>
+      <nav>
+        <div className="container-fluid">
+          <div className="row text-center">
+            <div className="col-xs-12">       
+		          <Link to="/home" activeClassName="active"><span className="fa fa-anchor"></span></Link>
+		          <Link to="/users" activeClassName="active"><span className="fa fa-comment"></span></Link>
 		          <a href="/" className="pull-right" onClick={this.logOut}><span className="fa fa-hand-peace-o"></span></a>
 		    		</div>
-        	</nav>
-					{/*<div className="row text-center">
-						<span className="fa fa-bank"></span>
-					</div>*/}
-				</div>
+          </div>
+        </div>
+    	</nav>
       );
     }
   }

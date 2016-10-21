@@ -9,16 +9,25 @@ class UsersPage extends React.Component {
 	}
 
 	userRow(user, index) {
-		return <div key={index}><p className="userRowContent">{index+1}. {user.name} - {user.email}</p><hr/></div>; 
+		return <li key={index} className="userRowContent">{user.email}</li>; 
 	}
 
 	render() {
 		return (
-			<div>
-				<div className="page-header">
-				<h1>Users</h1>
+			<div className="container">
+				<div className="row">
+					<div className="col-xs-12">
+						<h1>
+							<code id="UserCount" className="pull-left">{this.props.users.length.toString()}</code>		
+							<big className="pull-right">.:US3R$:.</big>
+						</h1>
+						<div className="clearfix"></div> 
+						<hr/>
+					</div>
+					<div className="col-xs-12">
+						<ul className="list-unstyled">{this.props.users.map(this.userRow)}</ul>
+					</div>
 				</div>
-				{this.props.users.map(this.userRow)} 
 			</div>
 		);
 	}

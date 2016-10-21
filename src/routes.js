@@ -8,9 +8,9 @@ import auth from './auth/authentic';
 
 export default (  
   <Route path="/" component={App}>
-    <IndexRoute component={HomePage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/users" component={UsersPage}/>
+    <IndexRoute component={LoginPage}></IndexRoute>
+    <Route path="/home" component={HomePage} onEnter={requireAuth}/>
+    <Route path="/users" component={UsersPage} onEnter={requireAuth}/>
   </Route>
 );
 
@@ -18,7 +18,7 @@ function requireAuth(nextState, replace) {
 
   if (!auth.loggedIn()) {
     replace({
-      pathname: '/login',
+      pathname: '/',
       state: { nextPathname: nextState.location.pathname }
     })
   }
