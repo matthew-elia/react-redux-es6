@@ -12,9 +12,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const store = configureStore();
 
 store.dispatch(loadUsers());
-store.subscribe(()=>{
-  console.log('new client state', store.getState());
-});
 store.dispatch({type:'server/whatsup', data:'websocket peristence is up.'});
 
 render(

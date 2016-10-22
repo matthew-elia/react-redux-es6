@@ -5,8 +5,8 @@ import thunk from 'redux-thunk';
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 
-let socket = io('http://localhost:8080');
-let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
+const socket = io('http://localhost:8080');
+const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
 export default function configureStore(initialState) {
 	return createStore(

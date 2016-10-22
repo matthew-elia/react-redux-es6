@@ -9,6 +9,7 @@ import open from 'open';
 // socket.io deps
 import http from 'http';
 import socket_io from 'socket.io';
+
 // app server configs
 const app_port = 8000;
 const app_server = express();
@@ -20,7 +21,7 @@ const compiler = webpack(config);
 
 
 /*  ------------------------------------------------------
-										SOCKET.IO SERVER 
+										APPLICATION SERVER 
   ------------------------------------------------------ */
 
 app_server.use(require('webpack-dev-middleware')(compiler, {
