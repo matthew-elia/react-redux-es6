@@ -84,7 +84,11 @@ nav {
 
 .userRowContent {
     font-size: 21px;
+    text-align: right;
 }
+    .fa-trash {
+        cursor: pointer;
+    }
 
 input:-webkit-autofill {
     -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */

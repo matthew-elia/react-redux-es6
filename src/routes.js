@@ -10,7 +10,9 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={LoginPage}></IndexRoute>
     <Route path="/home" component={HomePage} onEnter={requireAuth}/>
-    <Route path="/users" component={UsersPage} onEnter={requireAuth}/>
+    <Route path="/users" component={UsersPage} onEnter={requireAuth}>
+      {/*<Route path="/users/{id}" component={UserPage} onEnter={requireAuth}/>*/}
+    </Route>
   </Route>
 );
 
