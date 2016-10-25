@@ -15,6 +15,14 @@
     .fa-comment {
         color:rgba(255, 97, 125, 0.81);
         position:fixed;
+        top:0;
+        left:0;
+        margin:12px;
+        font-size: 35px;
+    }
+    .fa-plane {
+        color:rgba(255, 97, 125, 0.81);
+        position:fixed;
         bottom:0;
         left:0;
         margin:12px;

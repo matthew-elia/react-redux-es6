@@ -2,7 +2,6 @@ import * as types from './actionTypes';
 import sessionApi from '../api/SessionApi';
 import auth from '../auth/authentic';
 
-
 export function findOrCreateUserSuccess(user) {
   window.location.pathname = '/home';
   sessionStorage.setItem('jwt', user.api_key)

@@ -36,8 +36,9 @@ class Header extends React.Component {
           <div className="row text-center">
             <div className="col-xs-12">       
 		          <Link to="/home" activeClassName="active"><span className="fa fa-anchor"></span></Link>
-		          <Link to="/users" activeClassName="active"><span className="fa fa-comment"></span></Link>
-		          <a href="/" className="pull-right" onClick={this.logOut}><span className="fa fa-hand-peace-o"></span></a>
+              <Link to="/users" activeClassName="active"><span className="fa fa-comment"></span></Link>
+		          <Link to="/flights" activeClassName="active"><span className="fa fa-plane"></span></Link>
+              <a href="/" className="pull-right" onClick={this.logOut}><span className="fa fa-hand-peace-o"></span></a>
 		    		</div>
           </div>
         </div>

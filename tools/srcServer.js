@@ -59,5 +59,9 @@ io.on('connection', function(socket){
       console.log(action.data);
       socket.emit('action', {type:'message', data:'websocket connection UP'});
     }
+    if(action.type === 'SHOW_FLIGHTS'){
+      console.log(action.data);
+      socket.emit('action', {type:'message', data:'flights LOADED'});
+    }
   });
 });

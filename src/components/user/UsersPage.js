@@ -6,22 +6,8 @@
 class UsersPage extends React.Component {
 	constructor(props,context) {
     super(props,context);
-    this.state = {user: {id:''}};
-    // this.deleteUser = this.deleteUser.bind(this);
-    this.removeUser = this.removeUser.bind(this);
+    // this.state = {user: {id:''}};
   }
-
-  removeUser(index,event) {
-  	index = event.target.key;
-  	const user = this.state.user;
-  	user[index] = event.target.value;
-	  return this.setState({
-	    user: this.state.user.parent().filter((_, i) => i !== index)
-	  }).then((deleted)=>{
-	  	console.log(deleted);
-    	this.props.actions.deleteUser(user);
-	  });
-	}
 
 	userRow(user, index) {
 		return <li key={index} className="userRowContent"> {user.email} &nbsp;<span key={index} value={user.id} className="fa fa-trash" onClick={(index)=>{this.removeUser}}></span></li>; 
@@ -55,7 +41,7 @@ UsersPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		users: state.users
+		users: state.user
 	};
 }
 

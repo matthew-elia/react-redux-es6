@@ -1,9 +1,10 @@
 import React from 'react';  
 import { Route, IndexRoute } from 'react-router';  
 import App from './components/App';  
+import LoginPage from './components/common/LoginPage';
 import HomePage from './components/home/HomePage';
 import UsersPage from './components/user/UsersPage';   
-import LoginPage from './components/common/LoginPage';
+import FlightsPage from './components/flight/FlightsPage';
 import auth from './auth/authentic';
 
 export default (  
@@ -13,6 +14,7 @@ export default (
     <Route path="/users" component={UsersPage} onEnter={requireAuth}>
       {/*<Route path="/users/{id}" component={UserPage} onEnter={requireAuth}/>*/}
     </Route>
+    <Route path="/flights" component={FlightsPage} onEnter={requireAuth}/>
   </Route>
 );
 

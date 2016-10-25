@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
-import users from './userReducer';
-import sessions from './sessionReducer';
+import user from './userReducer';
+import session from './sessionReducer';
+import flight from './flightReducer';
 
 const rootReducer = combineReducers({
-	users,
-	sessions
+	user,
+	session,
+	flight
 });
 
 export default rootReducer;
